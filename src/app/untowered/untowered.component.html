@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+<input [(ngModel)]="tailNumber">
+<input [(ngModel)]="airportDesignator">
+
+<div>{{response}}</div>
+
+<div class="tank" (mousedown)="translate()" (mouseup)="send()">
+  <div class="bottom"></div>
+  <div class="middle"></div>
+  <div class="top"></div>
+</div>
+
+<div (click)="say()">Say</div>
+</div>
+
+</div>

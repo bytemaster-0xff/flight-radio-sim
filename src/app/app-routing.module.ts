@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UntoweredComponent } from './untowered/untowered.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'untowered', component:UntoweredComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+}

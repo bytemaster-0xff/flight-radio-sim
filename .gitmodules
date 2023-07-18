@@ -1,0 +1,6 @@
+[submodule "src/app/ui-shared"]
+	path = src/app/ui-shared
+	url = https://github.com/softwarelogistics/nuviot-ui-shared
+[submodule "src/app/services-shared"]
+	path = src/app/services-shared
+	url = https://github.com/softwarelogistics/nuviot-services-shared
