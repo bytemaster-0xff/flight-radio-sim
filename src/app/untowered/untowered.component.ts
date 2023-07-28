@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 declare var webkitSpeechRecognition: any;
 @Component({
@@ -16,6 +17,11 @@ export class UntoweredComponent implements OnInit {
   airportDesignator: string = "Clearwater"
   pressed: boolean = false;
 
+  top = environment.top;
+  left = environment.left;
+  width = environment.width;
+  height = environment.height;
+
   synth = window.speechSynthesis;
 
   constructor() { }
@@ -30,7 +36,7 @@ export class UntoweredComponent implements OnInit {
     };
   }
 
-  translate() {
+  startRadioCall() {
     console.log('starting now');
     this.response = '';
     this.pressed = true;
@@ -46,11 +52,13 @@ export class UntoweredComponent implements OnInit {
       };
     }
 
-    this.recording = true;
-    this.speech.start();
+    if(!this.recording) {
+      this.speech.start();
+      this.recording = true;
+    }
   }
 
-  send() {
+  endRadioCall() {
     this.pressed = false;
     window.setTimeout(() => { this.speech.stop();  this.recording = false; this.response = this.interim; }, 1000)
   }
