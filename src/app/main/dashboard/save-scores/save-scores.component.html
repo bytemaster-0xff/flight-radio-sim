@@ -1,0 +1,18 @@
+<div class="wrapper-screen">
+  <div class="container text-center col-xs-12">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label> Your Score: {{ form.get("score")?.value }} </label>
+      <br><br>
+      <input type="text" class="inp" placeholder="You Name..." formControlName="name" required autofocus />
+      <label *ngIf="form.controls['name'].errors && form.controls['name'].touched && form.controls['name'].invalid">
+        <br>
+        <span class="error-message">Please enter your name...</span>
+      </label>
+      <br><br>
+      <button type="submit" [disabled]="form.invalid" class="btn" style="height: 44px; width: 72.39px;">
+        <span *ngIf="!isLoading">Save</span>
+        <div class="loader" *ngIf="isLoading"></div>
+      </button>
+    </form>
+  </div>
+</div>

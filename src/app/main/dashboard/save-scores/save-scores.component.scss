@@ -1,0 +1,13 @@
+@import '/src/styles/variables';
+
+.container {
+  width: 350px;
+  padding: 30px 0px;
+  font-size: 18px;
+  border: 1px solid $border-default;
+
+  .error-message {
+    font-size: small;
+    color: $text-danger;
+  }
+}

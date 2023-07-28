@@ -1,19 +1,26 @@
-<div class="container">
-  <div class="row">
-<input [(ngModel)]="tailNumber">
-<input [(ngModel)]="airportDesignator">
+<div style="width:640px;padding:20px">
+  <div class="form-group">
+    <label class="form-label">Tail Number</label>
+    <input class="form-control" [(ngModel)]="tailNumber">
+  </div>
 
-<div class="response">{{response}}</div>
-
-<div style="display:flex" (mousedown)="translate()" (mouseup)="send()">
-<div class="tank" >
-  <div class="bottom"></div>
-  <div [ngClass]="pressed ? 'middle-pressed': 'middle'"></div>
-  <div [ngClass]="pressed ? 'top-pressed': 'top'"></div>
-</div>
+  <div class="form-group">
+    <label class="form-label">Airport Designator</label>
+  <input class="form-control"  [(ngModel)]="airportDesignator">
 </div>
 
-<div (click)="say()">Say</div>
-</div>
+  <div class="response">{{response}}</div>
 
+  <div style="display:flex" (mousedown)="startRadioCall()" (mouseup)="endRadioCall()">
+    <div class="tank">
+      <div class="bottom"></div>
+      <div [ngClass]="pressed ? 'middle-pressed': 'middle'"></div>
+      <div [ngClass]="pressed ? 'top-pressed': 'top'"></div>
+    </div>
+  </div>
+
+  <div (click)="say()">Say</div>
+
+  <app-game (startRadioCall)="startRadioCall()" (endRadioCall)="endRadioCall()"
+    [ngStyle]="{'width': width + 'px', 'height': height + 'px', 'top': top + 'px', 'left': left + 'px','position':'absolute'}"></app-game>
 </div>

@@ -57,3 +57,11 @@
 .response {
   font-size: large;
 }
+
+input {
+  font-size: x-large;
+}
+
+label {
+  font-size: x-large
+}

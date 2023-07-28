@@ -1,0 +1,83 @@
+<div class="wrapper-screen">
+  <div class="container text-center col-xs-12 col-sm-8 col-md-6 col-lg-4 col-xl-4">
+    <!-- Table with the list of Highscores -->
+    <div class="highscores" *ngIf="!isInstructions">
+      <h1 class="mt-20px">HIGHSCORES</h1>
+      <table class="table">
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+        <tr *ngFor="let player of scores; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ player.name }}</td>
+          <td>{{ player.score }}</td>
+        </tr>
+      </table>
+      <div class="loader" *ngIf="isLoading"></div>
+    </div>
+  
+    <!-- List of Instructions -->
+    <div class="instructions mx-20px" *ngIf="isInstructions">
+      <h1 class="mt-20px">INSTRUCTIONS</h1>
+      <ul class="instruction-list">
+        <li>
+          The objective of this game is to shoot the incoming UFOs and take down
+          as many as possible.
+        </li>
+        <li>
+          The game has 10 difficulty settings, each with its associated scores for
+          each hit, speeds of the player and UFOs.
+        </li>
+        <li>
+          In the starting Level, UFOs come in straight and as level increases, the
+          UFOs start to move around. The level increases as the score crosses each
+          100.
+        </li>
+        <li>
+          You have 3 lives. Your score increases as you hit any UFO. Your life
+          gets reduced when you crash with an UFO. Also, you can only shoot 5
+          active bullets at a time.
+        </li>
+        <br />
+        <li *ngIf="!isMobile">
+          Controls:
+          <br />
+          <br />
+          Move left: &nbsp; <span>&#8592;</span> &nbsp; or &nbsp; <span>a</span>
+          <br />
+          Move right: &nbsp; <span>&#8594;</span> &nbsp; or &nbsp; <span>d</span>
+          <br />
+          Move up: &nbsp; <span>&#8593;</span> &nbsp; or &nbsp; <span>a</span>
+          <br />
+          Move down: &nbsp; <span>&#8595;</span> &nbsp; or &nbsp; <span>s</span>
+          <br />
+          Shoot: &nbsp; <span>space</span> &nbsp; or &nbsp; <span>&#8626;</span>
+          <br />
+          Boost: &nbsp; <span>shift</span>
+        </li>
+        <li *ngIf="isMobile">
+          Controls:
+          <br />
+          <br />
+          <ul>
+            <li>Click and drag your Space ship to move.</li>
+            <li>The Space ship will fire at 2 shots per second.</li>
+          </ul>
+          <br />
+        </li>
+      </ul>
+    </div>
+  
+    <div class="row justify-center mb-20px">
+      <!-- Button to navigate to the Game page -->
+      <button class="btn" [routerLink]="['/', gameRoute]" routerLinkActive="router-link-active"> Play </button>
+      <!-- Button to toggle between Highscores and Instructions -->
+      <button class="btn" (click)="toggle()">
+        {{ isInstructions ? "Highscores" : "Instructions" }}
+      </button>
+    </div>
+  </div>
+</div>
+

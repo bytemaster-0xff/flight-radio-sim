@@ -1,0 +1,63 @@
+#canvas {
+  position: absolute;
+}
+#player,
+#bullet,
+#ufo {
+  display: none;
+}
+
+#level-banner {
+  color: #00fc00;
+  font-family: Korean Looks;
+  font-size: 25px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 1s;
+}
+
+.level {
+  font-family: Korean Looks;
+  color: #00fc00;
+  bottom: 8px;
+  left: 20px;
+  font-weight: bold;
+}
+
+.life {
+  height: 15px;
+  width: 20px;
+  padding: 0px 5px;
+}
+.life-dock {
+  left: 90px;
+  height: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ground {
+  position: absolute;
+  height: 40px;
+  width: 100vw;
+  bottom: 0px;
+}
+.divider {
+  border-color: #00fc00;
+  margin: 0;
+}
+.dock > * {
+  position: absolute;
+}
+
+.high-score {
+  font-family: Korean Looks;
+  color: #00fc00;
+  right: 40px;
+  font-weight: bold;
+  top: 50%;
+  transform: translateY(-50%);
+}
