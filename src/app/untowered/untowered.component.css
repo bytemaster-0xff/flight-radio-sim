@@ -1,6 +1,7 @@
 .tank{
   position:relative;
-   margin:50px;
+   margin:150px;
+   background-color: black;
 }
 
 .tank .middle{
@@ -21,6 +22,26 @@
   top:-25px;
 }
 
+.tank .middle-pressed{
+  width:120px;
+  height:130px;
+  background-color:#d00;
+  position:absolute;
+  top: 50px
+}
+
+.tank .top-pressed{
+  width: 120px;
+  height: 50px;
+  background-color:#f00;
+  -moz-border-radius: 60px / 25px;
+  -webkit-border-radius: 60px / 25px;
+  border-radius: 60px / 25px;
+  position:absolute;
+  top:25px;
+}
+
+
 .tank .bottom{
   width: 120px;
   height: 50px;
@@ -31,4 +52,8 @@
   position:absolute;
   top:155px;
   box-shadow:0px 0px 10px rgba(0,0,0,0.75)
+}
+
+.response {
+  font-size: large;
 }

@@ -3,12 +3,14 @@
 <input [(ngModel)]="tailNumber">
 <input [(ngModel)]="airportDesignator">
 
-<div>{{response}}</div>
+<div class="response">{{response}}</div>
 
-<div class="tank" (mousedown)="translate()" (mouseup)="send()">
+<div style="display:flex" (mousedown)="translate()" (mouseup)="send()">
+<div class="tank" >
   <div class="bottom"></div>
-  <div class="middle"></div>
-  <div class="top"></div>
+  <div [ngClass]="pressed ? 'middle-pressed': 'middle'"></div>
+  <div [ngClass]="pressed ? 'top-pressed': 'top'"></div>
+</div>
 </div>
 
 <div (click)="say()">Say</div>

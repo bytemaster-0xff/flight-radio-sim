@@ -14,6 +14,7 @@ export class UntoweredComponent implements OnInit {
   speech: any | undefined;
   tailNumber: string = 'N110VP';
   airportDesignator: string = "Clearwater"
+  pressed: boolean = false;
 
   synth = window.speechSynthesis;
 
@@ -22,11 +23,17 @@ export class UntoweredComponent implements OnInit {
   ngOnInit() {
     let voices = this.synth.getVoices();
     console.log(voices);
+
+    window.speechSynthesis.onvoiceschanged = function() {
+      let voices = window.speechSynthesis.getVoices();
+      console.log(voices);
+    };
   }
 
   translate() {
     console.log('starting now');
     this.response = '';
+    this.pressed = true;
 
     if (!this.speech) {
       this.speech = new webkitSpeechRecognition();
@@ -44,11 +51,12 @@ export class UntoweredComponent implements OnInit {
   }
 
   send() {
-    window.setTimeout(() => { this.speech.stop(); this.recording = false; this.response = this.interim; }, 1000)
+    this.pressed = false;
+    window.setTimeout(() => { this.speech.stop();  this.recording = false; this.response = this.interim; }, 1000)
   }
 
   say() {
-    const utterThis = new SpeechSynthesisUtterance("November One One Zero Victor Papa");
+    const text = new SpeechSynthesisUtterance("November One One Zero Victor Papa");
     /*const selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
     for (const voice of voices) {
       if (voice.name === selectedOption) {
@@ -57,7 +65,7 @@ export class UntoweredComponent implements OnInit {
     }
     utterThis.pitch = pitch.value;
     utterThis.rate = rate.value; */
-    this.synth.speak(utterThis);
+    this.synth.speak(text);
   }
 
 }
